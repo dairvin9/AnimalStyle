@@ -1,0 +1,19 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+{% block comment %}
+  <h1>Comment</h1>
+  <form action="" method="post" name="comment">
+      {{ form.hidden_tag() }}
+      <p>
+          Screenname:<br>
+          {{ form.username(size=80) }}<br>
+      </p>
+      <p>
+          What You Want To Say: <br>
+          <!-- fix this rendering deal and hook it up to a database -->
+          {{ form.comment(cols="35", rows="5") }} <br>
+
+      </p>
+      <p><input type="submit" value="Post"></p>
+  </form>
+{% endblock %}
