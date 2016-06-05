@@ -1,5 +1,5 @@
 from app import db
-
+"""
 class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), index=True, unique=True)
@@ -20,3 +20,25 @@ class Comment(db.Model):
 
     def __repr__(self):
         return '<Comment %r>' % (self.id)
+
+        """
+
+class BlogPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64), index=True, unique=True)
+    comments = db.relationship('Comment', backref='comment', lazy='dynamic') # commetns
+    content = db.Column(db.String(1000), index=True, unique=True)
+    timestamp = db.Column(db.DateTime)
+
+    def __repr__(self):
+        return '<BlogPost %r>' % (self.title)
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    author = db.Column(db.String(64), index=True)
+    text = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime)
+    blogpost_id = db.Column(db.Integer, db.ForeignKey('blog_post.id'))
+
+    def __repr__(self):
+        return '<Comment: %r says %r>' % (self.author, self.text)
