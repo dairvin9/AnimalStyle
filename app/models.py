@@ -1,33 +1,24 @@
-from app import db
-"""
-class BlogPost(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(64), index=True, unique=True)
-    content = db.Column(db.String(1000), index=True, unique=True)
-    comments = db.relationship('Comment',backref='comment',lazy='dynamic')
-    timestamp = db.Column(db.DateTime)
+from app import app, db
 
-    def __repr__(self):
-        return '<BlogPost %r>' % (self.title)
+# Enable search if python 2 is running
+import sys
+if sys.version_info >= (3, 0):
+    enable_search = False
+else:
+    enable_search = True
+    import flask.ext.whooshalchemy as whooshalchemy
 
-
-class Comment(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    author = db.Column(db.String(64), index=True)
-    text = db.Column(db.String(280))
-    timestamp = db.Column(db.DateTime)
-    post_id = db.Column(db.Integer, db.ForeignKey('BlogPost.id'))
-
-    def __repr__(self):
-        return '<Comment %r>' % (self.id)
-
-        """
 
 class BlogPost(db.Model):
+
+    # What is searchable for the article
+    __searchable__ = ['content','title']
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), index=True, unique=True)
+    title_no_spaces = db.Column(db.String(64), index=True, unique=True) # used for url
     comments = db.relationship('Comment', backref='comment', lazy='dynamic') # commetns
-    content = db.Column(db.String(1000), index=True, unique=True)
+    content = db.Column(db.String(1000), index=True)
     timestamp = db.Column(db.DateTime)
 
     def __repr__(self):
@@ -54,3 +45,7 @@ class Comment(db.Model):
             return unicode(self.id)  # python 2
         except NameError:
             return str(self.id)  # python 3
+
+# Enable search if running python 2
+if enable_search:
+    whooshalchemy.whoosh_index(app, BlogPost)

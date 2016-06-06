@@ -30,10 +30,10 @@ def blog():
 # Figure out how to allow multiple different of these pages to trigger different things
 @app.route('/blog_post/<blog_title>', methods=['GET', 'POST'])
 def blog_post(blog_title):
-    b = BlogPost(title="Bash Script Basics", content="In Progress") # Fake BlogPost, deal with it
-    b = BlogPost.query.filter_by(title=blog_title).first() #should grab first blog post to match title
-    c = [Comment(author='Steve',text="What a blog!"),Comment(author='Jason',text="Bash scripting is not useful")] #fake comments list
-    #c = Comment.query.filter_by(blogpost_id=b.id) # should grab all the comments on this post
+    blog_title = blog_title.lower()
+    b = BlogPost.query.filter_by(title_no_spaces=blog_title).first() #should grab first blog post to match title
+    #c = [Comment(author='Steve',text="What a blog!"),Comment(author='Jason',text="Bash scripting is not useful")] #fake comments list
+    c = Comment.query.filter_by(blogpost_id=b.id) # should grab all the comments on this post
     form = CommentForm()
     if form.validate_on_submit():
         flash('Comment Recieved') # Currently does not show
