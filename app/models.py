@@ -33,6 +33,12 @@ class BlogPost(db.Model):
     def __repr__(self):
         return '<BlogPost %r>' % (self.title)
 
+    def get_id(self):
+        try:
+            return unicode(self.id)  # python 2
+        except NameError:
+            return str(self.id)  # python 3
+
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     author = db.Column(db.String(64), index=True)
@@ -42,3 +48,9 @@ class Comment(db.Model):
 
     def __repr__(self):
         return '<Comment: %r says %r>' % (self.author, self.text)
+
+    def get_id(self):
+        try:
+            return unicode(self.id)  # python 2
+        except NameError:
+            return str(self.id)  # python 3

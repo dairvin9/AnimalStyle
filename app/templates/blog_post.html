@@ -3,17 +3,23 @@
 <article class="post">
 								<header>
 									<div class="title">
-										<h2>Some blog post</h2>
+										<h2>{{ blog_post.title }}</h2>
 										<p>This website.</p>
 									</div>
 									<div class="meta">
 										<time class="published" datetime="2015-11-01">May 28, 2016</time>
-										<a href="#" class="author"><span class="name">Crepe</span><img src="../static/images/avatar.jpg" alt="" /></a>
+										<a href="#" class="author"><span class="name">Denise</span></a>
 									</div>
 								</header>
 
-								<p>I am a software developer.</p>
+								<p>{{ blog_post.content }}</p>
 
+								{% for comment in comments %}
+									<div>
+										<p>{{ comment.author }}</p>
+										<p>{{ comment.text }}</p>
+									</div>
+								{% endfor %}
 							</article>
 
 
