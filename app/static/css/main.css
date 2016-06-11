@@ -1408,7 +1408,7 @@
 	}
 
 	body {
-		background: #f4f4f4;
+		background: #73F384; /* originally #f4f4f4*/ /* FF9933 */ /* Good orange FFAF50 */ /* Good green 73F384 */
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1969,7 +1969,7 @@
 		display: block;
 		float: left;
 		margin-right: -2em;
-		opacity: 0;
+		opacity: 1;
 		width: 1em;
 		z-index: -1;
 	}
@@ -3162,7 +3162,7 @@
 		transition: opacity 0.5s ease;
 		margin: 0 auto;
 		max-width: 100%;
-		opacity: 1;
+		opacity: 1; /* TODO */
 		padding: 4.5em;
 		width: 90em;
 	}

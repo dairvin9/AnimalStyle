@@ -3,6 +3,7 @@ from app import app
 from .forms import CommentForm
 from .models import BlogPost, Comment
 
+from sqlalchemy import desc
 
 # Helper Functions to get things out of the database
 # Dont know if I need this
@@ -25,7 +26,11 @@ def base():
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html')
+    #session.query(ObjectRes).order_by(ObjectRes.id.desc()).first()
+    b = BlogPost.query.order_by(desc(BlogPost.timestamp)).first()  # should grab first blog post to match title
+    print b.title_no_spaces
+    return redirect('blog_post',b.title_no_spaces) # figure out how I am supposed to pass this argument
+    #return render_template('blog.html')
 
 # Figure out how to allow multiple different of these pages to trigger different things
 @app.route('/blog_post/<blog_title>', methods=['GET', 'POST'])
