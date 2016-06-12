@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, url_for
 from app import app
 from .forms import CommentForm
 from .models import BlogPost, Comment
@@ -24,19 +24,24 @@ def about():
 def base():
     return render_template('base.html')
 
+# http://exploreflask.readthedocs.io/en/latest/views.html
 @app.route('/blog')
 def blog():
-    #session.query(ObjectRes).order_by(ObjectRes.id.desc()).first()
-    b = BlogPost.query.order_by(desc(BlogPost.timestamp)).first()  # should grab first blog post to match title
-    print b.title_no_spaces
-    return redirect('blog_post',b.title_no_spaces) # figure out how I am supposed to pass this argument
-    #return render_template('blog.html')
+    # why doesnt first() work?
+    b = BlogPost.query.order_by(desc(BlogPost.timestamp)).limit(1).all()
+    url = url_for('blog_post', blog_title=b[0].title_no_spaces)
+    return redirect(url)
+    #return redirect('blog_post',b.title_no_spaces) # figure out how I am supposed to pass this argument
 
 # Figure out how to allow multiple different of these pages to trigger different things
 @app.route('/blog_post/<blog_title>', methods=['GET', 'POST'])
 def blog_post(blog_title):
+    # Make a default title (most recent one)
     blog_title = blog_title.lower()
+
     b = BlogPost.query.filter_by(title_no_spaces=blog_title).first() #should grab first blog post to match title
+    if b is None:
+        return redirect('index')
     #c = [Comment(author='Steve',text="What a blog!"),Comment(author='Jason',text="Bash scripting is not useful")] #fake comments list
     c = Comment.query.filter_by(blogpost_id=b.id) # should grab all the comments on this post
     form = CommentForm()

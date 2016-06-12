@@ -2,6 +2,7 @@ from app import app, db
 
 # Enable search if python 2 is running
 import sys
+
 if sys.version_info >= (3, 0):
     enable_search = False
 else:
@@ -15,8 +16,8 @@ class BlogPost(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), index=True, unique=True)
-    title_no_spaces = db.Column(db.String(64), index=True, unique=True) # used for url
-    comments = db.relationship('Comment', backref='comment', lazy='dynamic') # commetns
+    title_no_spaces = db.Column(db.String(64), index=True, unique=True)  # used for url
+    comments = db.relationship('Comment', backref='comment', lazy='dynamic')  # comments
     content = db.Column(db.String(1000), index=True)
     timestamp = db.Column(db.DateTime)
     date_string = db.Column(db.String(64), index=True, unique=True)
@@ -29,6 +30,7 @@ class BlogPost(db.Model):
             return unicode(self.id)  # python 2
         except NameError:
             return str(self.id)  # python 3
+
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -45,6 +47,8 @@ class Comment(db.Model):
             return unicode(self.id)  # python 2
         except NameError:
             return str(self.id)  # python 3
+
+
 class CodeProject(db.Model):
     # Representation of the coding project
 
@@ -68,6 +72,7 @@ class CodeProject(db.Model):
             return unicode(self.id)  # python 2
         except NameError:
             return str(self.id)  # python 3
+
 
 class Picture(db.Model):
     id = db.Column(db.Integer, primary_key=True)
