@@ -9,24 +9,20 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="/code_project/{{ code_project.name_no_spaces }}">{{ code_project.name }}</a></h2>
+										<h2><a href="blog_post/{{ blog.name_no_spaces }}">{{ blog.title }}</a></h2>
 										<!-- I dont think I want this tagline -->
                                         <!-- <p>Tagline for project</p> -->
 									</div>
 									<div class="meta">
-										<time class="published" datetime="2015-11-01">{{ code_project.date_string }}</time>
+										<time class="published" datetime="2015-11-01">{{ blog.date_string }}</time>
 									</div>
 								</header>
                                 <!-- I dont think I want the picture -->
 								<!--<a href="#" class="image featured"><img src="../static/images/pic01.jpg" alt="" /></a> -->
 
                                 <!-- Write a short descriptino here -->
-                                <p>{{ code_project.short_description }}</p>
+                                <p>{{ blog.short_description }}</p>
 								<footer>
-									<ul class="actions">
-										<li><a href="{{ code_project.download_link }}" class="button big">Try {{ code_project.name }}</a></li>
-                                        <li><a href="{{ code_project.github_link }}" class="button big">Go to Github Page</a></li>
-									</ul>
 									<ul class="stats">
                                         <!-- TODO Implement tags and list them here -->
 										<!--<li><a href="#"></a></li>-->

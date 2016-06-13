@@ -6,11 +6,10 @@
 										<h2>{{ blog_post.title }}</h2>
 									</div>
 									<div class="meta">
-										<time class="published" datetime="2015-11-01">May 28, 2016</time>
-										<a href="#" class="author"><span class="name">Denise</span></a>
+										<time class="published" datetime="2015-11-01">{{ blog_post.date_string }}</time>
 									</div>
 								</header>
-
+								<a class="image featured"><img src="{{ blog_post.picture }}" alt="" /></a>
 								<p>{{ blog_post.content }}</p>
 
 								{% for comment in comments %}
@@ -20,12 +19,5 @@
 									</div>
 								{% endfor %}
 							</article>
-
-
 {% endblock %}
 
-
-{% block sidebar %}
-    <!-- Posts List -->
-
-{% endblock %}

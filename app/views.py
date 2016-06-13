@@ -57,22 +57,31 @@ def blog(page=1):
 # Figure out how to allow multiple different of these pages to trigger different things
 @app.route('/blog_post/<blog_title>', methods=['GET', 'POST'])
 def blog_post(blog_title):
+    # For sidebar
+    b = BlogPost.query.order_by(desc(BlogPost.timestamp)).limit(5).all()
+
     # Make a default title (most recent one)
     blog_title = blog_title.lower()
 
-    b = BlogPost.query.filter_by(title_no_spaces=blog_title).first() #should grab first blog post to match title
-    if b is None:
+    a = BlogPost.query.filter_by(title_no_spaces=blog_title).first() #should grab first blog post to match title
+    # Weird error
+    if a is None:
         return redirect('index')
+
     #c = [Comment(author='Steve',text="What a blog!"),Comment(author='Jason',text="Bash scripting is not useful")] #fake comments list
-    c = Comment.query.filter_by(blogpost_id=b.id) # should grab all the comments on this post
+    c = Comment.query.filter_by(blogpost_id=a.id) # should grab all the comments on this post
     form = CommentForm()
     if form.validate_on_submit():
+        new_comment = Comment(author=CommentForm.username.data, comment=CommentForm.comment.data)
+        db.session.add(comment)
+        db.session.commit()
         flash('Comment Recieved') # Currently does not show
         return redirect('/blog_post')
     return render_template('blog_post.html',
-                           blog_post=b,
+                           blog_post=a,
                            comments=c,
-                           form=form)
+                           form=form,
+                           blog_posts=b)
 
 
 @app.route('/code_projects')
