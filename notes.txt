@@ -1,0 +1,5 @@
+background: #73F384; /* originally #f4f4f4*/ /* FF9933 */ /* Good orange FFAF50 */ /* Good green 73F384 */
+1411	
+
+# Make datetime object
+datetime.datetime.strptime('16Sep2012', '%d%b%Y')

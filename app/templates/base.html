@@ -70,8 +70,26 @@
 							</section>
 
 
-						<!-- Fillable by another template -->
-						{% block sidebar %}{% endblock %}
+
+				<!-- Sidebar Content! -->
+					<!-- 5 most recent blog posts -->
+							{% for blog in blog_posts %}
+											<section>
+												<ul class="posts">
+													<li>
+														<article>
+															<header>
+																<h3><a href="{{ url_for('blog_post', blog_title=blog.title_no_spaces ) }}">{{ blog.title }}</a></h3>
+																<time class="published" datetime="2015-10-06">{{ blog.date_string }}</time>
+															</header>
+															<!-- add tags -->
+															<!--<a href="#" class="image"><img src="../static/images/pic12.jpg" alt="" /></a>-->
+														</article>
+													</li>
+												</ul>
+											</section>
+							{% endfor %}
+
                         
 
 						<!-- Footer -->

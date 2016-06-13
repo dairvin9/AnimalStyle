@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Post -->
-							<!-- List five most recent blog post -->
-
-
-							{% for blog in main_blog %}
+                        {% for code_project in code_projects %}
 
 							<article class="post">
 								<header>
@@ -36,22 +33,13 @@
 
                         {% endfor %}
 
-
-							<!--<article class="post">
-								<header>
-									<div class="title">
-										<h2>Some blog post</h2>
-										<p>This website.</p>
-									</div>
-									<div class="meta">
-										<time class="published" datetime="2015-11-01">May 28, 2016</time>
-										<a href="#" class="author"><img src="../static/images/avatar.jpg" alt="" /></a>
-									</div>
-								</header>
-
-								<p>I am a software developer.</p>
-
-							</article>-->
-
-
+						<!-- Pagination -->
+							<ul class="actions pagination">
+                                <!--
+                                    {% if code_projects.has_prev %}<a href="{{ url_for('code_projects_list', page=posts.prev_num) }}">&lt;&lt; Newer posts</a>{% else %}&lt;&lt; Newer posts{% endif %} |
+                                    {% if code_projects.has_next %}<a href="{{ url_for('code_projects_list', page=posts.next_num) }}">Older posts &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
+                                -->
+								<li><a href="" class="disabled button big previous">Previous Page</a></li>
+								<li><a href="#" class="button big next">Next Page</a></li>
+							</ul>
 {% endblock %}

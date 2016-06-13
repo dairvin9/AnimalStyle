@@ -21,6 +21,8 @@ class BlogPost(db.Model):
     content = db.Column(db.String(1000), index=True)
     timestamp = db.Column(db.DateTime)
     date_string = db.Column(db.String(64), index=True, unique=True)
+    picture = db.Column(db.String(150))
+    short_description = db.Column(db.String(140), index=True)
 
     def __repr__(self):
         return '<BlogPost %r>' % (self.title)
@@ -40,7 +42,7 @@ class Comment(db.Model):
     blogpost_id = db.Column(db.Integer, db.ForeignKey('blog_post.id'))
 
     def __repr__(self):
-        return '<Comment: %r says %r>' % (self.author, self.text)
+        return "<Comment>: \n author: %r \n text %r \n timestamp: %r \n blogpost_id %r \n" % (self.author, self.text, self.timestamp, self.blogpost_id)
 
     def get_id(self):
         try:
@@ -61,11 +63,13 @@ class CodeProject(db.Model):
     github_link = db.Column(db.String(150), index=True)
     download_link = db.Column(db.String(64), index=True)
     pictures = db.relationship('Picture', backref='picture', lazy='dynamic')  # pictures
-    title_no_spaces = db.Column(db.String(64), index=True, unique=True)  # used for url
+    name_no_spaces = db.Column(db.String(64), index=True, unique=True)  # used for url
     date_string = db.Column(db.String(64), index=True)
+    short_description = db.Column(db.String(140), index=True)
 
     def __repr__(self):
-        return '<CodeProject %r>' % (self.name)
+        return 'CodeProject %r \n short description: %r \n timestamp: %r \n github_link: %r \n download_link: %r \n name_no_spaces: %r \n datestring: %r \n' \
+               % (self.name,self.short_description, self.timestamp, self.github_link, self.download_link, self.name_no_spaces, self.date_string)
 
     def get_id(self):
         try:
