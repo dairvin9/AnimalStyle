@@ -15,7 +15,16 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="../static/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
-
+		<!-- Flashed Messages -->
+		{% with messages = get_flashed_messages() %}
+      		{% if messages %}
+        	<ul>
+        	{% for message in messages %}
+            	<li>{{ message }} </li>
+        	{% endfor %}
+        	</ul>
+      		{% endif %}
+    	{% endwith %}
 		<!-- Wrapper -->
 			<div id="wrapper">
 

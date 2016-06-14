@@ -25,7 +25,8 @@ class BlogPost(db.Model):
     short_description = db.Column(db.String(140), index=True)
 
     def __repr__(self):
-        return '<BlogPost %r>' % (self.title)
+        return 'BlogPost %r \n title no spaces: %r \n comments: %r \n content: %r \n timestamp: %r \n date_string: %r \n picture: %r \n short_description: %r \n' \
+               % (self.title, self.title_no_spaces, self.comments, self.content, self.timestamp, self.date_string, self.picture, self.short_description)
 
     def get_id(self):
         try:

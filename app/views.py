@@ -7,6 +7,7 @@ from sqlalchemy import desc
 
 # Sets up the url and functions that load html pages
 
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
@@ -70,13 +71,20 @@ def blog_post(blog_title):
 
     #c = [Comment(author='Steve',text="What a blog!"),Comment(author='Jason',text="Bash scripting is not useful")] #fake comments list
     c = Comment.query.filter_by(blogpost_id=a.id) # should grab all the comments on this post
-    form = CommentForm()
+    form = CommentForm(csrf_enabled=False)
     if form.validate_on_submit():
-        new_comment = Comment(author=CommentForm.username.data, comment=CommentForm.comment.data)
-        db.session.add(comment)
+        #Comment.create(comment=form.comment.data.strip(), username=form.username.data.strip())
+        #new_comment = Comment(author=CommentForm.username.data, comment=CommentForm.comment.data)
+        new_comment = Comment()
+        new_comment.author = form.username.data
+        new_comment.text = form.comment.data
+        new_comment.blogpost_id = a.id
+        db.session.add(new_comment)
         db.session.commit()
         flash('Comment Recieved') # Currently does not show
-        return redirect('/blog_post')
+        #return redirect('/index')
+        url = url_for('blog_post', blog_title=blog_title)
+        return redirect(url)
     return render_template('blog_post.html',
                            blog_post=a,
                            comments=c,
