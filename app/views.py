@@ -13,8 +13,7 @@ from sqlalchemy import desc
 def index():
     # For sidebar
     b = BlogPost.query.order_by(desc(BlogPost.timestamp)).limit(5).all()
-    # url = url_for('blog_post', blog_title=b[0].title_no_spaces)
-    # b = BlogPost(title='yes')
+
     if b is None:
         return redirect('/about')            # redirect to 404
     return render_template('index.html',
@@ -45,15 +44,9 @@ def blog(page=1):
         .paginate(page, BLOGPOSTS_PER_PAGE, False).items = BlogPost.query.order_by(
         desc(BlogPost.timestamp)).paginate(page, BLOGPOSTS_PER_PAGE, False).items
 
-    #c = CodeProject.query.order_by(desc(CodeProject.timestamp)) \
-    #   .paginate(page, CODEPROJECTS_PER_PAGE, False).items = CodeProject.query.order_by(
-    #    desc(CodeProject.timestamp)).paginate(page, CODEPROJECTS_PER_PAGE, False).items
-
-    #url = url_for('blog_post', blog_title=blog[0].title_no_spaces)
     return render_template('blog.html',
                            blog_posts=b,
                            main_blog=main)
-    #return redirect('blog_post',b.title_no_spaces) # figure out how I am supposed to pass this argument
 
 # Figure out how to allow multiple different of these pages to trigger different things
 @app.route('/blog_post/<blog_title>', methods=['GET', 'POST'])
@@ -73,8 +66,6 @@ def blog_post(blog_title):
     c = Comment.query.filter_by(blogpost_id=a.id) # should grab all the comments on this post
     form = CommentForm(csrf_enabled=False)
     if form.validate_on_submit():
-        #Comment.create(comment=form.comment.data.strip(), username=form.username.data.strip())
-        #new_comment = Comment(author=CommentForm.username.data, comment=CommentForm.comment.data)
         new_comment = Comment()
         new_comment.author = form.username.data
         new_comment.text = form.comment.data
@@ -82,7 +73,6 @@ def blog_post(blog_title):
         db.session.add(new_comment)
         db.session.commit()
         flash('Comment Recieved') # Currently does not show
-        #return redirect('/index')
         url = url_for('blog_post', blog_title=blog_title)
         return redirect(url)
     return render_template('blog_post.html',
@@ -101,7 +91,6 @@ def code_projects_list(page=1):
     b = BlogPost.query.order_by(desc(BlogPost.timestamp)).limit(5).all()
     c = CodeProject.query.order_by(desc(CodeProject.timestamp))\
         .paginate(page, CODEPROJECTS_PER_PAGE, False).itemsc = CodeProject.query.order_by(desc(CodeProject.timestamp)).paginate(page, CODEPROJECTS_PER_PAGE, False).items
-    #c = CodeProject.query.order_by(desc(CodeProject.timestamp)).all()
     return render_template('code_projects_list.html',
                            code_projects = c,
                            blog_posts = b)
