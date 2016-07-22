@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fatal Attribution Error</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="../static/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../static/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="../static/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="../static/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<!-- Flashed Messages -->
+		
+      		
+    	
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<!-- Links on upper bar -->
+						<h1><a href="/">Fatal Attribution Error</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="/about">About</a></li>
+								<!--<li><a href="/blog">Blog</a></li>-->
+								<li><a href="/code_projects">Code Projects</a></li>
+								<li><a href="http://nbviewer.jupyter.org/github/dairvin9/resume/blob/master/resume.pdf">Résumé</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<!--TODO: Evaluate utility of search bar (get it powered by google?-->
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<!-- Menu icon-->
+								<!--<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>-->
+							</ul>
+						</nav>
+					</header>
+
+
+				<!-- Main -->
+					<div id="main">
+
+					    <!-- fillable with content -->
+                        
+<!-- Post -->
+						<!-- About: Post -->
+						<!-- TODO: Fill with about info-->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>About</h2>
+										<p>Me.</p>
+									</div>
+									<div class="meta">
+
+									</div>
+								</header>
+
+								<p>I'm  Denise. I like to do things- develop software, read fantasy novels, play board games, and compete in petty competitions (ping pong, video games, basketball, it's the best). I also like to create things, and made this website as a platform to organize and display the things I make, write about things I learn and ideas. Like a bulletin board</p>
+								<p></p>
+							</article>
+
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>About</h2>
+										<p>This website.</p>
+									</div>
+									<div class="meta">
+
+									</div>
+								</header>
+
+								<p>This website is made with love, python and the obvious stuff (html, css, javascript). But mostly python.</p>
+								<p></p>
+								<p>If you are looking to create a website, and want [unsolicited] advice, i'd tell you to use <a href="http://flask.pocoo.org/">Flask</a> as your framework because it is manageable, small, and has great tutorials. The html template I used is from <a href ="https://html5up.net/">HTML5 UP</a>. Just don't use emacs. Friends don't let friends use emacs (or wear rain ponchos).</p>
+
+							</article>
+
+
+						<!-- FAQ: Post -->
+						<article class="post">
+								<header>
+									<div class="title">
+										<h2>Q & A</h2>
+										<p>For the curious.</p>
+									</div>
+									<div class="meta">
+
+									</div>
+								</header>
+
+								<p><b>Don't you know there is no such thing as a Fatal Attribution Error?</b> Yes, I do. The name is inspired by Fundamental Attribution Error, a social psychology concept first studied in the late sixties. The idea is that people attribute most of a person's behaviour to their personality, largely ignoring relevant situational factors. Why did Susie yell at Janie? Not because Janie sorely provoked her, but because she is an angry person. This concept interests me, because there are so many ways to look at individual people. And we get to choose what we attribute. I went with "Fatal" instead of "Fundamental" because when I learned the term, I mixed up the words and called said "Fatal" instead. No one ever called me out on it though.</p>
+
+								<p><b></b> </p>
+
+							</article>
+
+
+
+                        
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"></a>
+								<header>
+									<h2>Fatal Attribution Error</h2>
+									<!-- TODO: decide if I need a tagline <p>Another fine responsive site template by </p> -->
+								</header>
+							</section>
+
+
+
+				<!-- Sidebar Content! -->
+					<!-- 5 most recent blog posts -->
+						<!--
+							
+											<section>
+												<ul class="posts">
+													<li>
+														<article>
+															<header>
+																<h3><a href="/blog_post/command_line_python">Command Line Python</a></h3>
+																<time class="published" datetime="2015-10-06">June 12, 2016</time>
+															</header>
+															<!-- add tags -->
+															<!--<a href="#" class="image"><img src="../static/images/pic12.jpg" alt="" /></a>-->
+						<!--								</article>
+													</li>
+												</ul>
+											</section>
+							
+						-->
+                        
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Fatal Attribution Error. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<!--[if lte IE 8]><script src="../static/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>

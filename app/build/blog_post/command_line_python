@@ -1,0 +1,166 @@
+<!-- extend from base layout -->
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fatal Attribution Error</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="../static/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../static/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="../static/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="../static/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<!-- Flashed Messages -->
+		
+      		
+    	
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<!-- Links on upper bar -->
+						<h1><a href="/">Fatal Attribution Error</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="/about">About</a></li>
+								<!--<li><a href="/blog">Blog</a></li>-->
+								<li><a href="/code_projects">Code Projects</a></li>
+								<li><a href="http://nbviewer.jupyter.org/github/dairvin9/resume/blob/master/resume.pdf">Résumé</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<!--TODO: Evaluate utility of search bar (get it powered by google?-->
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<!-- Menu icon-->
+								<!--<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>-->
+							</ul>
+						</nav>
+					</header>
+
+
+				<!-- Main -->
+					<div id="main">
+
+					    <!-- fillable with content -->
+                        
+<article class="post">
+								<header>
+									<div class="title">
+										<h2>Command Line Python</h2>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">June 12, 2016</time>
+									</div>
+								</header>
+								<a class="image featured"><img src="/static/images/commandLinePython.PNG" alt="" /></a>
+								<p>in progress</p>
+
+								
+									<div>
+										<p>I have opinions</p>
+										<p>Heslf</p>
+									</div>
+								
+									<div>
+										<p>asfa</p>
+										<p>fadf</p>
+									</div>
+								
+									<div>
+										<p>svz</p>
+										<p>SDV</p>
+									</div>
+								
+							</article>
+
+                        
+  <h1>Comment</h1>
+  <form action="" method="post" name="comment">
+      <div style="display:none;"><input id="csrf_token" name="csrf_token" type="hidden" value="None"></div>
+      <p>
+          Screenname:    <br>
+          <input id="username" name="username" size="64" type="text" value=""><br>
+      </p>
+      <p>
+          What You Want To Say: <br>
+          <!-- fix this rendering deal and hook it up to a database -->
+          <textarea cols="35" id="comment" name="comment" rows="4" size="140"></textarea> <br>
+
+      </p>
+      <p><input type="submit" value="Go"></p>
+  </form>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"></a>
+								<header>
+									<h2>Fatal Attribution Error</h2>
+									<!-- TODO: decide if I need a tagline <p>Another fine responsive site template by </p> -->
+								</header>
+							</section>
+
+
+
+				<!-- Sidebar Content! -->
+					<!-- 5 most recent blog posts -->
+						<!--
+							
+											<section>
+												<ul class="posts">
+													<li>
+														<article>
+															<header>
+																<h3><a href="/blog_post/command_line_python">Command Line Python</a></h3>
+																<time class="published" datetime="2015-10-06">June 12, 2016</time>
+															</header>
+															<!-- add tags -->
+															<!--<a href="#" class="image"><img src="../static/images/pic12.jpg" alt="" /></a>-->
+						<!--								</article>
+													</li>
+												</ul>
+											</section>
+							
+						-->
+                        
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Fatal Attribution Error. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/skel.min.js"></script>
+			<script src="../static/js/util.js"></script>
+			<!--[if lte IE 8]><script src="../static/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>
